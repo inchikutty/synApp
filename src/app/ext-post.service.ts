@@ -10,7 +10,7 @@ export class ExtPostService {
     }
 
     getData(): Observable<Post[]> {
-        return this.http.get('http://localhost:8000/api/extevents')
+        return this.http.get('http://54.200.147.89/index.php/api/extevents')
             .map(this.extractData)
             .catch(this.handleError);
     }

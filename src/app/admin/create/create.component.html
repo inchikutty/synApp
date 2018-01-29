@@ -1,17 +1,14 @@
 
 <div class="container">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <hr />
   <mat-card>
+    <mat-card-title> Create an Event </mat-card-title>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
         <input name="title" ngModel type="text" placeholder="Event Title"/>
         <input name="price" ngModel type="text" class="form-control" placeholder="Event Price"/>
         <input name="venue" ngModel type="text" placeholder="Event Venue"/>
         <input name="date" ngModel type="datetime" placeholder="Event Date and Time"/>
-        <br/>
         <textarea name="body" ngModel type="text" class="form-control" placeholder="Event body"></textarea>
+        <br/>
 
       <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Add</button>
     </form>

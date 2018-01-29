@@ -11,17 +11,17 @@ export class PostService {
     }
 
     getData(): Observable<Post[]> {
-        return this.http.get('http://localhost:8000/api/events')
+        return this.http.get('http://54.200.147.89/index.php/api/events')
             .map(this.extractData)
             .catch(this.handleError);
     }
     getExtData(): Observable<Post[]> {
-        return this.http.get('http://localhost:8000/api/extevents')
+        return this.http.get('http://54.200.147.89/index.php/api/extevents')
             .map(this.extractData)
             .catch(this.handleError);
     }
     submitted(data):Observable<Post[]>{
-      return this.http.post('http://localhost:8000/api/events', data)
+      return this.http.post('http://54.200.147.89/index.php/api/events', data)
          .map(this.extractData)
         .catch(this.handleError);
     }
