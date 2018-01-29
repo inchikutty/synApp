@@ -1,9 +1,11 @@
-// PostComponent - the parent component
 
-
+//AdminComponent - the parent component
 import { Component, OnInit } from '@angular/core';
-//import { PostListComponent } from '../post-list/post-list.component';
-//import { PostService } from '../post.service';
+import { AdminComponent } from '../admin.component';
+import { PostService } from '../../post.service';
+import { Post } from '../../post';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-admin-update',
@@ -11,10 +13,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
+  private posts: Post[] = [];
+  private errorMessage: any = '';
 
-  constructor() { }
+  constructor( private postService: PostService) {
+
+  }
+  //post = new PostService
+
 
   ngOnInit() {
+    this.getPosts();
   }
-
+  getPosts() {
+   this.postService.getData()
+          .subscribe(
+              posts => this.posts = posts,
+              error => this.errorMessage = <any>error);
+  }
+  onSubmit(data, id){
+    this.postService.updateRecord(data, id)
+           .subscribe(
+               posts => this.posts = posts,
+               error => this.errorMessage = <any>error);
+   }
 }

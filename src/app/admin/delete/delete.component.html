@@ -1,1 +1,10 @@
-
+<div>
+      <mat-card *ngFor="let post of posts">
+          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-subtitle>{{post.venue}}</mat-card-subtitle>
+          <mat-card-subtitle>USD {{post.price}}</mat-card-subtitle>
+          <mat-card-subtitle>{{post.date}}</mat-card-subtitle>
+          <mat-card-content>Event ID: {{post.id}}</mat-card-content>
+          <button mat-raised-button color="accent" (click)="deleteEvent(post.id)" class="btn btn-primary">Delete</button>
+      </mat-card>
+</div>

@@ -1,4 +1,16 @@
-<form>
-  <input placeholder="update"/>
-</form>
-<!--app-post-list></app-post-list-->
+<div class="container">
+  <mat-card>
+    <mat-card-title> Update Event </mat-card-title>
+    <form #form="ngForm" *ngFor="let post of posts" novalidate>
+        <input name="title" ngModel type="text" placeholder={{post.title}}/>
+        <input name="price" ngModel type="text"  placeholder={{post.price}}/>
+        <input name="venue" ngModel type="text" placeholder={{post.venue}}/>
+        <input name="date" ngModel type="datetime" placeholder={{post.date}}/>
+        <textarea name="body" ngModel type="text"  placeholder={{post.body}}></textarea>
+        <!-- <input name="id" value={{post.id}}/> -->
+        <br/>
+
+      <button mat-raised-button color="accent" (click)="onSubmit(form.value, post.id)" class="btn btn-primary">Update</button>
+    </form>
+  </mat-card>
+</div>

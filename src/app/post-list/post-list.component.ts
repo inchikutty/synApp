@@ -25,13 +25,12 @@ private errorMessage: any = '';
 
   }
     ngOnInit() {
-    this.getPosts();
+      this.getPosts();
     }
-
-  getPosts() {
- this.postService.getData()
+    getPosts() {
+      this.postService.getData()
         .subscribe(
             posts => this.posts = posts,
             error => this.errorMessage = <any>error);
-}
+    }
 }

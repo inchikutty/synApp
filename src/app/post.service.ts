@@ -25,6 +25,17 @@ export class PostService {
          .map(this.extractData)
         .catch(this.handleError);
     }
+    deleteRecord(id):Observable<Post[]>{
+      return this.http.delete('http://54.200.147.89/index.php/api/events/'+id)
+         .map(this.extractData)
+        .catch(this.handleError);
+    }
+    updateRecord(data, id):Observable<Post[]>{
+      console.log(data);
+      return this.http.put('http://54.200.147.89/index.php/api/events/'+id, data)
+         .map(this.extractData)
+        .catch(this.handleError);
+    }
 
     private extractData(res: Response) {
         let body = res.json();

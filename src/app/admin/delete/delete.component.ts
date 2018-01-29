@@ -1,9 +1,7 @@
 // PostComponent - the parent component
-
-
 import { Component, OnInit } from '@angular/core';
-//import { PostListComponent } from '../post-list/post-list.component';
-//import { PostService } from '../post.service';
+import { PostService } from '../../post.service';
+import { Post } from '../../Post';
 
 @Component({
   selector: 'app-admin-delete',
@@ -11,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
+  private posts: Post[] = [];
+  private errorMessage: any = '';
 
-  constructor() { }
+  constructor( private postService: PostService) {
+
+  }
 
   ngOnInit() {
+    this.getPosts();
+  }
+  getPosts() {
+   this.postService.getData()
+          .subscribe(
+              posts => this.posts = posts,
+              error => this.errorMessage = <any>error);
+  }
+  deleteEvent(id){
+    console.log(id);
+    this.postService.deleteRecord(id)
+           .subscribe(
+               posts => this.posts = posts,
+               error => this.errorMessage = <any>error);
+
   }
 
 }
