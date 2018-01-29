@@ -5,7 +5,7 @@ Data is entered using App's front-end while backend listens to create, update an
 
 ## Deployment
 
-App is running at http://pulsd-inchikutty.com.s3-website-us-west-2.amazonaws.com/home-events
+App is running at http://pulsd-inchikutty.com.s3-website-us-west-2.amazonaws.com
 
 ## Assumptions
 
