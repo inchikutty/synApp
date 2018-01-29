@@ -1,0 +1,17 @@
+<mat-toolbar >
+<button mat-raised-button color="accent" layout-align="center center" (click)="show = !show">{{show ? 'Logout' : 'Login'}}</button>
+</mat-toolbar>
+<div *ngIf="show">
+
+<mat-toolbar>
+    <mat-toolbar-row>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link routerLink="/admin/create">CREATE</a>
+      <a mat-tab-link routerLink="/admin/update">UPDATE</a>
+      <a mat-tab-link routerLink="/admin/delete">DELETE</a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+</div>
